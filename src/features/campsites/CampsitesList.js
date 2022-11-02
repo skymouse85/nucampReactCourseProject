@@ -1,6 +1,8 @@
+//export defaults import without curly braces
 import { Col, Row } from 'reactstrap';
 import CampsiteCard from "./CampsiteCard";
 import { selectAllCampsites } from './campsitesSlice';
+
 
 const CampsitesList = () => {
     const campsites = selectAllCampsites();

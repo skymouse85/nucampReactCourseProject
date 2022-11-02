@@ -1,3 +1,4 @@
+//export defaults import without curly braces
 import { Container, Row, Col } from "reactstrap";
 
 
