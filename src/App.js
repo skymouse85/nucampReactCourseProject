@@ -1,15 +1,15 @@
-import './App.css';
-import CampsitesList from './features/campsites/CampsitesList';
+//export defaults import without curly braces
 import Header from './components/Header';
 import Footer from './components/Footer';
+import CampsitesDirectoryPage from './pages/CampsitesDirectoryPage';
+import './App.css';
 
-//export defaults import without curly braces
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <CampsitesList />
+      <CampsitesDirectoryPage />
       <Footer />
     </div>
   );

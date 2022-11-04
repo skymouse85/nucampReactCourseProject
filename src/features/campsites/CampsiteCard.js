@@ -1,3 +1,4 @@
+//export defaults import without curly braces
 import { Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
 
 const CampsiteCard = ({ campsite }) => {
