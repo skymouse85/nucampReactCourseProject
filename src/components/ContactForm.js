@@ -9,7 +9,6 @@ const ContactForm = () => {
         resetForm();
     };
 
-    //TODO 6. validate contact form
 
     return (
         <Formik
