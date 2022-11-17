@@ -21,7 +21,7 @@ const CampsitesList = () => {
                         <CampsiteCard campsite={campsite} />
                     </Col>
                 )
-            })};
+            })}
         </Row>
     );
 };

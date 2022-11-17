@@ -15,12 +15,12 @@ const CampsitesDirectoryPage = () => {
             <Row>
                 <SubHeader current='Directory' />
 
-                <Col sm='5' md='7'>
+                <Col sm='5' md='12'>
                     <CampsitesList setCampsiteId={setCampsiteId} />
                 </Col>
-                <Col sm='7' md='5'>
+                {/* <Col sm='7' md='5'>
                     <CampsiteDetail campsite={selectedCampsite} />
-                </Col>
+                </Col> */}
 
             </Row>
         </Container>
