@@ -16,7 +16,7 @@ const commentsSlice = createSlice({
                 id: state.commentsArray.length + 1,
                 ...action.payload
             };
-            state.commentsArray.puch(newComment);
+            state.commentsArray.push(newComment);
         }
     }
 });
