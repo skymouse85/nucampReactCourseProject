@@ -8,7 +8,8 @@ import {
     NavItem
 } from "reactstrap";
 import { NavLink } from 'react-router-dom';
-import NucampLogo from '../app/assets/img/logo.png'
+import NucampLogo from '../app/assets/img/logo.png';
+import UserLoginForm from '../features/user/UserLoginForm';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -23,25 +24,26 @@ const Header = () => {
             <Nav className='ms-auto' navbar>
                 <NavItem>
                     <NavLink className='nav-link' to='/'>
-                        <i className='fa fa-home fa-lg'>Home</i>
+                        <i className='fa fa-home fa-lg' /> Home
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink className='nav-link' to='/directory'>
-                        <i className='fa fa-list fa-lg'>Directory</i>
+                        <i className='fa fa-list fa-lg' /> Directory
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink className='nav-link' to='/about'>
-                        <i className='fa fa-info fa-lg'>About</i>
+                        <i className='fa fa-info fa-lg' /> About
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink className='nav-link' to='/contact'>
-                        <i className='fa fa-address-card fa-lg'>Contact</i>
+                        <i className='fa fa-address-card fa-lg' /> Contact
                     </NavLink>
                 </NavItem>
             </Nav>
+            <UserLoginForm></UserLoginForm>
         </Collapse>
     </Navbar>
     );

@@ -8,6 +8,7 @@ const initialState = {
 const commentsSlice = createSlice({
     name: 'comments',
     initialState,
+    //plan for what the reducer does
     reducers: {
         addComment: (state, action) => {
             console.log('addComment action.payload:', action.payload);
@@ -23,6 +24,7 @@ const commentsSlice = createSlice({
 
 export const commentsReducer = commentsSlice.reducer;
 
+//action creator -> dispatch (built in function accessed via hook) -> reducer ->
 export const { addComment } = commentsSlice.actions;
 
 export const selectCommentsByCampsiteId = (campsiteId) => (state) => {

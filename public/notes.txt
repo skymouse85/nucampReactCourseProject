@@ -1,0 +1,407 @@
+NUCAMP course 2 - Dynamic with React
+
+Week one notes
+
+JS functions functions functions
+
+Pure function: A function that will always return the same value for identical inputs AND doesn’t produce any side effects
+	 - It never refers to anything outside of it’s own scope
+	 - the return of the function can only be modified within the function
+
+Side effect: what occurs when a function changes data that exists outside of its own scope
+	- Examples include console.log(), DOM manipulation, user input
+
+Declarative VS imperative
+		•	Declarative programming is a way of abstracting away the process by which a particular task is done.
+* As an example, consider the following example.
+    * A parent or guardian may tell you how to accomplish a task explicitly, with you doing the heavy lifting.
+    * When you ask a professional to accomplish the same task, they won't tell you how to do it. It just gets done and you do a lot less work.
+    * Declarative programming and React are more like the professional.
+
+
+* Characteristics of imperative programming:
+    * low level
+    * step by step
+    * shared/mutable variables
+    * side effects
+* Characteristics of declarative programming:
+    * higher level
+    * what not how
+    * no mutable variables
+    * no side effects
+* React's markup language, JSX, plays a key role in the declarative nature of React.
+
+
+
+
+JSX
+
+	- A markup language that lets us write something that is kind of like HTML in javaScript
+	
+* JSX is a way of writing DOM manipulating JavaScript more compactly than using CSS, HTML, and vanilla JavaScript.
+* In JavaScript, we would write 
+* document.createElement('div') 
+* In JSX, we write
+* <div></div> 
+* JSX elements are similar to DOM nodes, but are more concise and performant.
+* React's render() method decides how to update and build the app as efficiently as possible.
+* Curly braces allow us to assign JavaScript variables and expressions to our React elements.
+* In JSX, generally we use camelCase to assign properties.
+* We can also create custom elements, such as our App component, which must be capitalized.
+
+COMPONENTS
+
+* In React, functions that return JSX are called components.
+* Components are the basic building blocks of React apps.
+* Components can be defined as functions that must return JSX and take in props.
+
+* Props is an object created by by React when we render a component using JSX. 
+* The props object contains data within its properties. 
+* It is passed into components, similar to how arguments are passed to functions. 
+* If no props object is passed in, then the props argument inside the component will be an empty object. 
+* A prop can be passed to a React component when it is rendered, by using syntax that looks very similar to using HTML attributes.
+    * can take in JavaScript variables using curly braces.
+    * are read only - we cannot modify them directly inside of our components.
+* Props are immutable - react prevents us from causing unwanted side effects
+
+
+Week two notes
+
+* The destructuring assignment syntax is a way to unpack properties from objects and arrays into discrete variables.
+* To destructure an object in JavaScript, we list the keys in curly braces, and assign them to the object name.
+ - When destructuring arrays, the order that variables are declared is important.
+ - object properties do not have to be declared in a specific order.
+
+
+
+
+Array.filter() & Array.find()
+Filter returns a new array
+IT ALWAYS returns a array
+
+If you don’t want an array, use find
+
+
+State
+Data that changes and the component should serenader when it does
+Const [order, setOrder] = useState(“none”)
+
+DATA with props and state
+1. Decide what data you’ll need to store
+2. Pick ONE place 
+3. Pass down the data (and functions to update the data) through props to whatever needs them
+
+Do not update state directly
+
+Hooks
+Functions 
+All start with ‘use’ such as useState, useParams, useLocation, useNavigate
+useParams is the main hook that will be used - it makes url components available to 
+
+SPA’s and React Router
+
+In order to have routes work, you must have a browser router around the app component in index.JS
+
+<Link/>
+
+
+Props review 
+Boolean top in reactstrap
+
+Short-circuiting is interesting, read Natalie’s article about it. 
+
+
+Portfolio project
+ - look at thinking in react from the React docs to start working on it
+
+Week two submission
+AboutPage.js
+App.js
+Partner.js
+PartnersList.js
+partnersSlice.js
+
+
+Week Three notes
+
+
+
+JS ternary operator
+* The ternary operator (also known as the conditional operator) is so-called because it's the only JavaScript operator with three operands. (Ternary means "composed of three parts".)
+
+condition to be evaluated ? expression to execute if condition is truthy : expression to execute if condition is falsy
+
+* It can often be used as a shortcut for the if statement.
+You cannot use a return statement in the ternary operator, as it is a statement, not an expression.
+
+You can use return before the ternary operator to evaluate the statement ex.
+function canVote(age) {
+    if (age >= 18) {
+        return true;
+    } else {
+        return false;
+    }
+};
+Would become:
+
+function canVote(age) {
+    return (age >= 18) ? true : false;
+}
+
+
+The useEffect Hook
+
+To review, hooks are functions that give additional capabilities to function components
+
+useState === local state
+
+useEffect === sideEffects
+
+		Reaction components and side effects review
+A side effect occurs when a function relies on or modifies something outside of its scope
+React components are functions that:
+1. Take in props
+2. Return JSX
+Examples of side effects in a React component:
+Direct DOM manipulation
+Timer functions: setTimeout, setInterval, ect.
+Fetching data from external sources
+
+React components and side effects
+React handles the rendering of components
+useEffect lets us run side effects outside of React’s normal rendering process
+
+The useEffect Hook
+ - a function that takes 2 two arguments - 
+        1. a callback function- the code of running the side effect goes in the callback function
+	2. An optional array of dependencies, which can be used to control when the side effect  runs	
+Syntax: useEffect(callbackFunction, [dependency1, dependency2])
+The dependencies array
+1. No array - run the effect every time the component is rendered
+2. Empty array - run the effect the FIRST TIME the component is rendered ONLY
+3. One or more dependencies listed in array - run the effect when any of the dependencies’ values changes
+Cleaning up effects
+Add a cleanup routine to useEffect when needed by returning a function from the callback function passed into useEffect
+useEffect(() =>) {
+  //do something
+  return () => {
+    // clean something up
+  };
+});  
+
+
+CSS in React & React Spring
+Options for using CSS in react
+	1) import CSS and use the className prop
+	2) inline style prop and object variable
+	3) inline style prop and object literal
+	4) mix and match
+	5) use the CSS module system
+
+CSS classes are generally better for performance than inline styles.
+
+https://reactjs.org/docs/faq-styling.html
+
+React Spring
+* React Spring is an animation library for React that gives us a hooks-based declarative API for creating custom physics-based animations.
+* The library is built around the model of a spring, which leads to some really nice, life-like animations.
+* React Spring animations are created to be interruptible, concurrent, and composable. 
+    * Interruptible means that they can be stopped or paused at any point. 
+    * Concurrent means that multiple animations can be run at the same time.
+    * Composable means they can be combined together to create more complex animations. 
+* To use React Spring, we wrap React elements using the animated function from the React Spring library. Then, we pass a prop to it whose value is an object returned from a call to the useSpring hook.
+
+JavaScript Computed Property Names and Spread Syntax
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015
+
+You will sometime have some code that does not know in advance what the names of the object properties will be, computed property names allow you to created object more dynamically to create objects that don’t know what the property names will be, and will create them with variables that are passed to it.
+const myProperty = 'bar';
+undefined
+const obj = {
+    [myProperty]: 'new value'
+}
+undefined
+obj
+{bar: 'new value'}
+
+
+
+ Spread Syntax
+
+Can be used with both arrays and objects
+
+Lets you pull out (aka “spread” ) a copy of what’s inside the array or object, typically in order to create a new array or object
+const landVehicles = ["sedan", "truck", "van"];
+undefined
+const waterVehicles = ["canoe", "kayak", "submarine"];
+undefined
+
+const allVehicles = [...landVehicles, ...waterVehicles];
+undefined
+allVehicles
+(6) ['sedan', 'truck', 'van', 'canoe', 'kayak', 'submarine']
+// can also be a way to add a string to an array
+undefined
+const addedVehicles = [...allVehicles, "batmobile"];
+undefined
+addedVehicles
+(7) ['sedan', 'truck', 'van', 'canoe', 'kayak', 'submarine', 'batmobile']
+//can also be used with nums, objects
+
+undefined
+
+const mixNMatch = [...landVehicles, 2,3,4, "banana", {someObjProperty: "someObjValue"}, ...waterVehicles];
+
+undefined
+
+mixNMatch
+
+* (11) ['sedan', 'truck', 'van', 2, 3, 4, 'banana', {…}, 'canoe', 'kayak', 'submarine']
+
+can be used with multiple object and combine them together
+
+const objOne = { color: "blue", height: 12};
+undefined
+const objTwo = { material: "ceramic", width: 6};
+undefined
+// spread syntax pulls out the kay value pairs and recombines them into a new object
+undefined
+const comboObj = {...objOne, ...objTwo};
+undefined
+comboObj;
+{color: 'blue', height: 12, material: 'ceramic', width: 6}
+
+If two objects in a spread statement have the same property, the fist in the statement will overwrite the second
+
+Can use spread to create a new object from an existing object while updating one or more of it’s properties 
+﻿
+
+const objOneUpdatedHeight = { ...objOne, height: 300};
+
+undefined
+
+objOneUpdatedHeight
+
+* {color: 'blue', height: 300} 
+
+
+* The useRef hook is used to create a reference. A reference is a persisted, mutable object with a current property.
+* One of the most common ways to use this hook is to access the DOM directly, outside of React's normal rendering process. 
+* It's  useful any time we want to store a piece of information outside of React's state.
+* Changing a reference does not cause a component to re-render, and we don't have to wait for the next re-render for the updated value of a reference to be available inside a component. 
+* If for some reason, we want to persist a mutable value outside of the normal rendering process, we use a ref.
+
+Forms in React
+
+Uncontrolled forms are a common use case for useRefs to directly manipulate the DOM
+ - typically uses a reference to get the form data
+ - we control the state of our form imperatively
+ - quick and dirty
+ - can be a valid approach, but is not as powerful as controlled forms
+ - UI and forms state are not in sync
+* React - Uncontrolled Components
+
+
+Controlled Forms
+
+* With controlled forms, we sync the values for the form in the DOM with React local component state for that form.
+* With React state synchronized with the form, we can respond to user input before submission, provide dynamic responses to input, and modify the UI depending on the current state of the form. 
+* Formik works very similarly to the examples in this video. 
+* If you want to instantly validate a response, disable or hide a submit button until certain conditions are met, enforce certain standards on an input, or in any way dynamically respond to user input in your UI, controlled forms are probably a better option than uncontrolled forms.
+
+
+WEEK 3 WORKSHOP NOTES
+
+Imagine the app function as a waiter
+
+Use effect can take care of side effects, such as washing dirty and can specify when it fires
+
+Empty dependency array means that the useEffect code runs just once
+
+
+Workshop submission:
+CommentForm.js
+CommentsList.js
+validateCommentForm.js
+
+
+
+WEEK 4 NOTES
+
+MVC
+* MVC stands for Model View Controller.
+* In the software development world, you will often read or hear people mention something called MVC, or one of its variants such as MVVM or MVA.
+* MVC is what's known as a software design pattern. 
+* the Model part of MVC is concerned with the application state and logic.  
+* The View part of MVC is concerned with presenting information to the user.  
+* The Controller part of MVC handles events and mediates between the Model and the View. 
+* MVC enforces a separation of concerns, so that different parts of an application can be developed, debugged, and maintained independently.
+* It is a predecessor to the Flux pattern that is used by React. 
+ FLUX
+
+* The engineers working on React came up with a new design pattern, or architecture, that they called Flux. 
+* Like MVC, it's an approach for how to structure your code. It can be considered as an evolution of MVC. 
+* The key feature of Flux that sets it apart from MVC is that it has a strictly defined unidirectional (one-way) data flow, preventing the many bugs that resulted from MVC's bi-directional data flow. 
+ 
+Flux concerns changed from MVC to action => dispatcher => store => view
+
+REDUX
+
+* State management library
+* “A predictable state container for JS apps”
+* Originally built for react but can work with any JS app
+* Flux + reducers
+* Dispatch function dispatches actions to store
+* Redux uses reducer function to immutably update store state based on action
+* Actions are JS objects with a type property and an optional payload. The payload can be any type of data we want to pass into the store
+* Example
+const myAction = {
+  type: 'ADD_ITEM',
+  payload: {
+    username: 'someone',
+    stars: 5
+  }
+};
+Actions are sent into the store via the dispatch function
+
+dispatchEvent(myAction);
+
+Redux useSelector
+
+Select pieces of state from store using useSelector hook
+View is updated when state received from useSelector changes
+
+Examples 
+const myData = useSelector((state) => state.myData)
+const campsites = useSelector(selectAllCampsites);
+
+
+Array.reduce()
+
+Iterates over an array and returns a reduced value
+
+Takes in a callback function as its first argument. Called the reducer function or the reducer
+Optional second argument of an initial value
+
+* Array.reduce() returns a reduced value which can be of any data type, depending on how you write the reducer function and what initial value you specify.
+* The reducer has two parameters: an accumulator value, and the current value.
+
+
+
+
+When used with Redux, we can change out ACC and CUR for STATE and ACTION
+
+Redux hooks
+useSelctor()
+
+takes a function for selecting the data as a parameter and returns the selected data
+
+useDispatch()
+
+Often set to a variable
+const dispatch = useDispatch()
+
+
+FOPR SUBMISSION WK 4 workshop assignment 
+userSlice.js, store.js, UserLoginForm.js, Header.js, validateUserLoginForm.js.
