@@ -405,3 +405,99 @@ const dispatch = useDispatch()
 
 FOPR SUBMISSION WK 4 workshop assignment 
 userSlice.js, store.js, UserLoginForm.js, Header.js, validateUserLoginForm.js.
+
+
+
+
++++++++++++++WEEK FIVE++++++++++++++++++++
+HTTP requests
+
+
+REST 
+soft ware architectural style that defines a set of constrains for creating Web servies
+
+6 defining constrains of REST 
+
+RESTful web services have or are:
+1. Client-server separation
+2. Statelessness
+3. Uniform interface
+4. Cacheable
+5. Layered system
+6. Code on demand
+
+
+RESTful web services are built upon HTTP and use HTTP methods
+POST 
+GET 
+PUT 
+DELETE 
+HEAD 
+CONNECT 
+OPTIONS 
+TRACE 
+CATCH
+
+The most often used are POST/GET/PUT/DELETE 
+
+analogous CRUD operations from database programming
+Create/Read/Update/Delete 
+
+
+All of the four above http methods except POST are Idempotent - 
+Idempotence is when a operation can be repeated multiple times and does not change it's operand more than once, if at all. e.g. multiply any number by zero does not change the operand)
+
+--------------------------------
+Representional state transfer
+a resource on a server is any data that can be requested by a client - a name from a database, a stock price, a weather report, an image or html file, ect
+
+resources are made available at unique URIs, and a client can request each resource specifically by its URI
+
+the server responds to a GET request for a resource by sending a representation of that resource, typically as JSON or XML
+
+Or the clist client will send a POST or PUT reqyuest by sending a JSON/XML representation in its request body, and the server will create a resource from it.
+
+JSON server terminal command: 
+json-server -H 0.0.0.0 --watch db.json -p 3001 -d 2000
+
+
+The -H 0.0.0.0 flag sets the host IP as 0.0.0.0, which is a way of telling json-server to listen to incoming requests on any IP address belonging to your computer. 
+The --watch db.json flag sets json-server to use the db.json file as its source of data to serve.
+The -p 3001 flag sets json-server to listen on network port 3001. 
+The -d 2000 flag sets an artificial delay of 2 seconds (2000 milliseconds) before json-server will send a response to a request. This is intended to simulate real-world conditions where you would expect some latency when sending a request to a server on the internet. Without this delay, since json-server is on your own computer and your requests and its responses do not need to be routed through any networks, it would respond nearly instantly to requests you make.
+
+
+++++++++++++++++++++JavaScript promises++++++++++++++++++++  
+allow an app to proceed with the program while waiting for the server to respond to a request
+acts as a proxy for a value that is not available at the moment the promise is created
+promise has 3 States 
+PENDING e.g. youve ordered the pizza, but it has not yet arrived
+FULFILLED e.g. the pizza has been baked and delivered
+REJECTED e.g. the pizza delivery has failed for some reason
+
+we'll be using fetch API to create and handle promises, but here is how one would create a promise
+
+const somePromise = new Promise((resolve, reject) => {
+    //run some code
+    // call the resolve callback function if succsessful, and the reject callback if failed
+
+});
+
+Consuming a promise
+
+three methods - .then(), .catch(), .finally() (we won't be using .finally)
+
+somePromise.then(
+    (response) => 
+    /* handle the response returned from the promise's resolve function */
+    (error) =>
+    /* handle the error returned from the reject function 
+);
+
+you can chain .then() methods 
+
+if you call a promises .then() method, it returns another promise which has it's own
+then method, and if you call that, it returns another promise with it's own then method
+
+
+
