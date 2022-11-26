@@ -499,5 +499,19 @@ you can chain .then() methods
 if you call a promises .then() method, it returns another promise which has it's own
 then method, and if you call that, it returns another promise with it's own then method
 
+++++++++++++++++++++redux thunk+++++++++++++++++++++
 
+part of the default middleware used by React Toolkit
+
+Redux Thunk handles actions that are functions instead of objects
+
+such fuinctions have access to dispatch() and redux state
+
+typically, an asynchronous function -- a function that returns a promise
+
+functions written to be handeld by Redux Thunk are called thunk functions, or Thunks
+
+redux toolkis simplifies asynchronous state management by providing createAsyncThunk() got creating asychronous thunks 
+
+createAsyncThunk(action type string, async function)
 
