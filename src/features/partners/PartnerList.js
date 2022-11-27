@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Col, Label } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import Partner from './Partner';
 import { selectAllPartners } from './partnersSlice';
 import Error from '../../components/Error';
@@ -18,13 +18,15 @@ const PartnersList = () => {
         <Error errMsg={errMsg} />
     ) : (
         <Col className='mt-4'>
-            {partners.map((partner) => {
-                return (
-                    <div className='d-flex mb-5' key={partner.id}>
-                        <Partner partner={partner} />
-                    </div>
-                )
-            })}
+            <Row>
+                {partners.map((partner) => {
+                    return (
+                        <div className='d-flex mb-5' key={partner.id}>
+                            <Partner partner={partner} />
+                        </div>
+                    )
+                })}
+            </Row>
         </Col>
     )
 }
